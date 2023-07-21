@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your SuperHero</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="app">
+        <!-- app header -->
+        <div class="app-header">
+          <h2 class="app-header-title" id="home">Super<span>Hero.</span></h2>
+          <h2 class="app-header-title" id="favorite">
+            Favorite <span>Hero</span>
+          </h2>
+          <form class="app-header-search">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search your superhero here ..."
+              name="search"
+            />
+            <button type="submit" class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-list" id="search-list">
+              <!-- <div class = "search-list-item">
+                <img src = "images/thumbnail-batman.jpg" alt = "">
+                <p>Batman</p>
+              </div> -->
+            </div>
+          </form>
+        </div>
+        <!-- end of app header -->
+
+        <div class="app-body">
+          <div class="app-body-content">
+            <!-- app body thumbnail -->
+            <div class="app-body-content-thumbnail">
+              <!-- <img src = "images/thumbnail-batman.jpg"> -->
+            </div>
+            <!-- end of app body thumbnail -->
+
+            <div class="app-body-content-list">
+              <div class="name"></div>
+              <p class="desc"></p>
+
+              <!-- tabs head -->
+              <div class="app-body-tabs-head">
+                <button type="button" class="tab-head-single" data-id="1">
+                  <span>Series</span>
+                </button>
+                <button type="button" class="tab-head-single" data-id="2">
+                  <span>Comics</span>
+                </button>
+                <button type="button" class="tab-head-single" data-id="3">
+                  <span>Events</span>
+                </button>
+                <button type="button" class="tab-head-single" data-id="4">
+                  <span>Stories</span>
+                </button>
+              </div>
+              <!-- end of tabs head -->
+
+              <!-- tabs body -->
+              <div class="app-body-tabs-body">
+                <!-- powerstats tab -->
+                <ul class="tab-body-single series">
+                  <h2>Please Search any Super Hero</h2>
+                </ul>
+                <!-- end of powerstats tab -->
+
+                <!-- biography tab -->
+                <ul class="tab-body-single comics"></ul>
+                <!-- end of biography tab -->
+
+                <!-- appearance -->
+                <ul class="tab-body-single events"></ul>
+                <!-- end of appearance -->
+
+                <!-- connections -->
+                <ul class="tab-body-single stories"></ul>
+                <!-- end of connections -->
+              </div>
+              <!-- end of tabs body -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Your SuperHero</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="app">
+        <!-- app header -->
+        <div class="app-header" style="gap: 70px">
+          <h2 class="app-header-title" id="home">Super<span>Hero.</span></h2>
+          <h2 class="app-header-title" id="favorite">
+            Favorite <span>Hero</span>
+          </h2>
+          <div style="flex-grow: 1"></div>
+        </div>
+        <!-- end of app header -->
+
+        <div class="app-body">
+          <div class="app-body-content favorite">
+            <div class="app-body-content-list">
+              <div class="name">Favorite Heros</div>
+              <p class="desc">Access all your favorite heros from one place</p>
+              <div class="app-cards"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("home").onclick = () => {
+        window.location.href = "./index.html";
+      };
+
+      function populateCard() {
+        document.querySelector(".app-cards").innerHTML = "";
+
+        let localItem = window.localStorage.getItem("favoriteArray");
+        if (localItem === undefined || localItem === null) {
+          localStorage.setItem("favoriteArray", "[]");
+        } else {
+          let favoriteIds = JSON.parse(localItem);
+
+          favoriteIds.forEach(async (id) => {
+            let url = `https://gateway.marvel.com/v1/public/characters/${id}?ts=1687953689613&apikey=0fc498898ce4f085cd1bbc38740813d9&hash=8939ec157872895103c67f577ab70f59`;
+
+            let response = await fetch(url);
+            let data = await response.json();
+            let information = data.data.results[0];
+
+            let html = ` <div class="app-card">
+                  <i class="fa-solid fa-x" onclick="remove('${
+                    information.id
+                  }')"></i>
+                  <img
+                    src="${
+                      information.thumbnail.path +
+                      "." +
+                      information.thumbnail.extension
+                    }"
+                    alt=""
+                  />
+                  <p class="name">${information.name}</p>
+                  <p class="desc">
+                    ${information.description}
+                  </p>
+                </div>`;
+            document.querySelector(".app-cards").innerHTML += html;
+          });
+        }
+      }
+      function remove(id) {
+        id = parseInt(id);
+        console.log(id);
+        let localItem = window.localStorage.getItem("favoriteArray");
+        if (localItem === undefined || localItem === null) {
+          localStorage.setItem("favoriteArray", "[]");
+        } else {
+          let favoriteIds = JSON.parse(localItem);
+          let newArray = [];
+
+          favoriteIds.forEach((favId) => {
+            if (parseInt(favId) !== parseInt(id)) newArray.push(favId);
+          });
+          console.log(favoriteIds, "---->");
+          console.log(newArray);
+          localStorage.setItem("favoriteArray", `${JSON.stringify(newArray)}`);
+          populateCard();
+
+          // setTimeout(() => {
+          //   window.location.reload();
+          // }, 10000);
+        }
+      }
+      populateCard();
+    </script>
+  </body>
+</html>

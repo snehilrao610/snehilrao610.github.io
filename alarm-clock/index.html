@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm Clock</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <center>
+        <!-- Alarm Clock Image -->
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3557/3557755.png"
+          alt=""
+          height="150"
+        />
+      </center>
+      <!-- Clock where time update every seconds -->
+      <div class="almContainer">
+        <div class="clk"></div>
+      </div>
+
+      <div class="adder">
+        <!-- Input fields for adding the alarm -->
+        <div class="inputs">
+          <div class="input">
+            <!-- For Hour -->
+            <select name="" id="hrs">
+              <option value="--" selected>Hours</option>
+            </select>
+          </div>
+          <div class="input">
+            <!-- For Minutes -->
+            <select name="" id="mns">
+              <option value="--" selected>Minutes</option>
+            </select>
+          </div>
+          <div class="input">
+            <!-- For Seconds -->
+            <select name="" id="secs">
+              <option value="--" selected>Seconds</option>
+            </select>
+          </div>
+        </div>
+        <!-- A submit type Button to Add Alarm -->
+        <div class="submit">
+          <button class="add" onclick="addAlarm()">Add Alarm</button>
+        </div>
+      </div>
+    </div>
+    <!-- Shows the list of all Alarm (added or in the localStorage) -->
+    <div class="list">
+      <h2>All Alarms</h2>
+
+      <!-- List goes here... -->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

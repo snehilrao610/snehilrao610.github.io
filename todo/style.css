@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.body {
+  background-color: #020631;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+.todoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  max-width: 90vw;
+  padding: 20px 0;
+}
+.greet {
+  font-weight: 700;
+  font-size: 3rem;
+}
+.greet.small .ins:hover {
+  border-bottom: 1px solid white;
+}
+.greet.small .ins {
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+}
+.greet.small {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 40px;
+  font-weight: 500;
+  justify-content: space-between;
+}
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+.create {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 10px 15px;
+  color: black;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.create input {
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 1.4rem;
+}
+.task input {
+  width: 20px;
+  height: 20px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+}
+.task label span {
+  position: absolute;
+  right: 15px;
+  font-family: monospace;
+  font-size: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -3px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.task {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.task {
+  margin: 10px 0;
+  transition: all 0.2s ease-in;
+  background-color: white;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.task:has(input:checked) {
+  background-color: #5529dc;
+  color: white;
+  animation: rotate360 0.5s linear;
+}
+.task input:checked {
+  accent-color: #5529dc;
+}
+.todoContainer .tasks button {
+  background-color: #5529dc;
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+@keyframes rotate360 {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .task,
+  .create input,
+  .todoContainer .tasks button {
+    font-size: 1.75rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .task,
+  .create input,
+  .todoContainer .tasks button {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .task,
+  .create input,
+  .todoContainer .tasks button {
+    font-size: 2.5rem;
+  }
+}

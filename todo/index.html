@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- body for background -->
+    <div class="body">
+      <!-- container for Text Field and Tasks -->
+      <div class="todoContainer">
+        <div class="logo">
+          <!-- Logo -->
+          <image src="./logo.png" alt="Logo" />
+        </div>
+        <!-- Greet -->
+        <div class="greet">Hello🖖 Shubham, <span id="greet"></span></div>
+
+        <div class="tasks">
+          <!-- Text Field -->
+          <div class="create input">
+            <input type="text" placeholder="✍️ Add todo..." />
+            <span
+              onclick="addTodo()"
+              style="font-size: 25px; margin: 0 10px; cursor: pointer"
+            >
+              +
+            </span>
+          </div>
+          <!-- All Todo -->
+          <div class="todo"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Script JS -->
+    <script src="index.js"></script>
+  </body>
+</html>

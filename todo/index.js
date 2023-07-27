@@ -7,7 +7,7 @@ const html = (name) =>
 //To add the todo
 const addTodo = () => {
   let input = document.querySelector("input").value; // gets the value of input field
-  document.querySelector(".todo").innerHTML += html(input, id); // appends the HTML of todo
+  document.querySelector(".todo").innerHTML += html(input); // appends the HTML of todo
 
   // Adds the same todo in the localstorage
   let localTodo = JSON.parse(localStorage.getItem("localTodo"));
